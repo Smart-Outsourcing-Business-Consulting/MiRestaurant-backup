@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<t t-name="http_routing.400">
+    <t t-call="web.frontend_layout">
+        <div id="wrap">
+            <div class="container">
+                <h1 class="mt-5">Oops! Something went wrong.</h1>
+                <p>Take a look at the error message below.</p>
+            </div>
+            <t t-if="editable or request.session.debug">
+                <t t-call="http_routing.http_error_debug" />
+            </t>
+            <t t-else="">
+                <div class="container">
+                    <t t-call="http_routing.error_message" />
+                </div>
+            </t>
+        </div>
+    </t>
+</t>
+
+    

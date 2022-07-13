@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<t t-name="website_calendar_booking.personal_info">
+    <t t-call="website.layout">
+        <t t-set="additional_title">Fill Personal Information</t>
+        <div id="wrap">
+            <div class="container">
+                <div class="call_mundo">
+                    <h4>
+                        For reservations with more than 6 guest please call us on
+                        <span t-esc="order['spancompanyphone']" />
+                    </h4>
+                </div>
+                <form id="personinfo" method="GET" action="/book/personalinfo">
+                    <div class="form-group">
+                        <label for="name">Name*</label>
+                        <input name="name" id="name" type="text" class="form-control" t-attf-value="#{order['name']}" required="1" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email*</label>
+                        <input name="email" id="email" type="email" t-attf-value="#{order['email']}" class="form-control" required="1" />
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Your Phone*</label>
+                        <input name="phone" id="phone" type="text" t-attf-value="#{order['phone']}" class="form-control" required="1" />
+                    </div>
+                    <div class="form-group">
+                        <label for="pax">Persons*</label>
+                        <div class="call_mundo" style="text-align: center;display: none;">
+                            <h4 style="color:red">
+                                For reservations with more than 6 guest please call us on
+                                <span id="spanphone" />
+                            </h4>
+                        </div>
+                        <select name="Pax" class="form-control" id="Pax">
+                            <option class="form-control" t-att-value="1">
+                                <t t-esc="1" />
+                            </option>
+                            <option class="form-control" t-att-value="2">
+                                <t t-esc="2" />
+                            </option>
+                            <option class="form-control" t-att-value="3">
+                                <t t-esc="3" />
+                            </option>
+                            <option class="form-control" t-att-value="4">
+                                <t t-esc="4" />
+                            </option>
+                            <option class="form-control" t-att-value="5">
+                                <t t-esc="5" />
+                            </option>
+                            <option class="form-control" t-att-value="6">
+                                <t t-esc="6" />
+                            </option>
+                            <!--                                <option class="form-control" t-att-value="morethan6"><span>More than 6</span></option>-->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="comment">Special Occasions?</label>
+                        <textarea id="comment" name="comment" class="form-control" />
+                        <span id="spocc" style="color:#74fca4;display: none;">We will do the best we can to honor your request and make your evening a great experience</span>
+                    </div>
+                    <input type="hidden" name="date_span" id="date_span" t-attf-value="#{order['date_span']}" />
+                    <input type="hidden" name="start_timeslot" id="start_timeslot" t-attf-value="#{order['start_timeslot']}" />
+                    <input type="hidden" name="Type" id="Type" t-attf-value="#{order['Type']}" />
+                    <input type="hidden" name="start" id="start" t-attf-value="#{order['start']}" />
+                    <input type="hidden" name="calendar_id" id="calendar_id" t-attf-value="#{order['calendar_id']}" />
+                    <input type="submit" class="btn btn-primary btn-lg subbtn" value="Confirm Appointment" />
+                </form>
+            </div>
+        </div>
+    </t>
+</t>
+
+
+        
